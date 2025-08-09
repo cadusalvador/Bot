@@ -22,4 +22,4 @@ cs_bot.load_plugin("plugin.hello")
 
 
 if __name__ == '__main__':
-    cs_bot.run(host="0.0.0.0", port=int(os.getenv("PORT"))
+    cs_bot.run(host="0.0.0.0", port=int(os.getenv("PORT")))
