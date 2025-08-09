@@ -1,2 +1,2 @@
-Flask
-requests
+os
+"cs-bot @ git+ssh://git@github.com/seatalk-io/cs-bot.git@master"
