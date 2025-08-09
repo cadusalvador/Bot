@@ -4,24 +4,40 @@ import os
 
 app = Flask(__name__)
 
+BOT_TOKEN = os.getenv("SEATALK_BOT_TOKEN")
+
 WEBHOOK_URL = os.getenv("SEATALK_WEBHOOK_URL")
 
 @app.route("/", methods=["POST"])
 def webhook():
-    data = request.json
+    data = request.get_json()
 
     print("Dados recebidos", data)
 
-    if WEBHOOK_URL:
-        payload = {"content": "Olá"}
-        resp = requests.post(WEBHOOK_URL, json=payload)
+    if data.get("type") == "url_verification":
+        return jsonify({"challenge": data["challenge"]})
 
-        if resp.status_code == 200:
-            print("Mensagme enviada com sucesso")
-        else:
-            print(f"Falha ao enviar: {resp.status_code} - {resp.text}")
+    if data.get("type") == "message":
+        text = data.get("text", "").strip()
+        chat_id = data.get("chat_id")
 
-    return jsonify({"status": "ok"}), 200
+        if text and chat_id:
+            enviar_mensagem(chat_id, "Olá 👋")
+
+    return jsonify({"status": "ok"})
+
+def enviar_mensagem(chat_id, texto):
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {BOT_TOKEN}" 
+    }
+    
+    payload = {
+        "chat_id": chat_id,
+        "text": texto
+    }
+
+    requests.post(SEATALK_API_URL, headers=headers, json=payload)
 
 @app.route("/", methods=["GET"])
 def home():
