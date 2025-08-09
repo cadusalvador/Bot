@@ -1,2 +1,2 @@
 os
-cs-bot @ git+https://git@github.com/seatalk-io/cs-bot.git@main
+"cs-bot @ git+https://git@github.com/seatalk-io/cs-bot.git@main"
