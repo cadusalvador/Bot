@@ -1,5 +1,5 @@
 import cs_bot
-from cs_bot import MessageSession, logger
+from cs_bot import StartupConfig
 from cs_bot.adapters import sop_bot
 
 
