@@ -1,18 +1,13 @@
 import cs_bot
 from cs_bot import MessageSession, logger
 from cs_bot.adapters import sop_bot
-import os
-
-APP_ID = os.getenv("SEATALK_APP_ID")
-APP_SECRET = os.getenv("SEATALK_APP_SECRET")
-SIGNING_SECRET = os.getenv("SEATALK_SIGNING_SECRET")
 
 
 config = {
     "adapter": {
-        "app_id": APP_ID,
-        "app_secret": APP_SECRET,
-        "signing_secret": SIGNING_SECRET
+        "app_id": "ODI1ODIyODY0NDYy",
+        "app_secret": "5srPiZuFhH84GkUl2qqjRFBDuFnlQZQ4",
+        "signing_secret": "4MPu_ZvbEOUIaAohr4leF09VwG2sKutB"
     }
 }
 
@@ -22,4 +17,4 @@ cs_bot.load_plugin("plugin.hello")
 
 
 if __name__ == '__main__':
-    cs_bot.run(host="0.0.0.0", port=int(os.getenv("PORT")))
+    cs_bot.run(host="0.0.0.0", port=int(5000))
