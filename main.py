@@ -17,4 +17,4 @@ cs_bot.load_plugin("plugin.hello")
 
 
 if __name__ == '__main__':
-    cs_bot.run(host="0.0.0.0", port=8080)
+    cs_bot.run(host="0.0.0.0", port=5000)
